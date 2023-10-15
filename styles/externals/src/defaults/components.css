@@ -1,0 +1,102 @@
+/**
+   *
+   *
+   *
+   * CARD
+   */
+
+.card {
+  @apply w-full bg-white lg:rounded-xl shadow border;
+}
+
+.card-header {
+  @apply flex justify-between items-center pt-6 pb-4;
+}
+
+.card-title {
+  @apply text-xl grow capitalize;
+}
+
+.card-header,
+.card-body,
+.card-footer {
+  @apply px-6;
+}
+
+.card-footer {
+  @apply flex items-center py-6;
+}
+
+/**
+ *
+ *
+ *
+ * MODAL
+ */
+
+.modal {
+  @apply pb-16 pt-2 fixed inset-0 z-20 flex overflow-auto;
+  @apply bg-white/30 backdrop-blur-sm shadow-lg;
+  /* @apply bg-black/50; */
+}
+
+.modal .card {
+  @apply rounded-xl;
+}
+
+/**
+   *
+   *
+   *
+   * PAN MENU
+   */
+
+.pan-menu {
+  @apply flex border-b overflow-auto;
+}
+
+.pan-menu>.pan-link {
+  @apply px-8 py-3 min-w-[8rem] text-center border-b-2 border-transparent text-gray-600 whitespace-nowrap;
+}
+
+.pan-menu>.pan-link:hover,
+.pan-menu>.pan-link.active {
+  @apply text-primary;
+}
+
+.pan-menu>.pan-link.active {
+  @apply border-primary;
+}
+
+/**
+   *
+   *
+   *
+   * SEGMENT CONTROL
+   */
+
+.segment-control {
+  @apply grid grid-cols-2 p-[.2rem] h-12 rounded-lg;
+  @apply text-center text-sm bg-gray-100;
+}
+
+.segment-control>* {
+  @apply h-full px-4 flex cursor-pointer rounded-lg;
+}
+
+.segment-control>*>* {
+  @apply m-auto;
+}
+
+/**
+   *
+   *
+   *
+   * MARK
+   */
+
+.mark {
+  @apply w-[18px] aspect-square rounded-full flex items-center justify-center;
+  @apply text-[10px] text-white font-semibold truncate;
+  @apply bg-primary;
+}

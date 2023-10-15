@@ -1,0 +1,89 @@
+{
+    "data": {
+        "profile": {
+            "id": 22,
+            "name": "Budi Sapi",
+            "school_year": 2023,
+            "profile_type": "Siswa",
+            "access": {
+                "ER": {
+                    "role": "student",
+                    "featureAccesses": [
+                        {
+                            "feature": "virtual-rapot@ER",
+                            "access": "1"
+                        },
+                        {
+                            "feature": "nilai-kelas-diampu@ER",
+                            "access": "1"
+                        },
+                        {
+                            "feature": "list-master-kelas@ER",
+                            "access": "1"
+                        },
+                        {
+                            "feature": "mapel-diampu@ER",
+                            "access": "1"
+                        },
+                        {
+                            "feature": "list-master-mapel@ER",
+                            "access": "1"
+                        },
+                        {
+                            "feature": "excul-diampu@ER",
+                            "access": "1"
+                        },
+                        {
+                            "feature": "list-master-excul@ER",
+                            "access": "1"
+                        }
+                    ]
+                }
+            },
+            "history_semester": [
+                {
+                    "level": 10,
+                    "prody": "Rekayasa Perangkat Lunak",
+                    "short_prody": "RPL",
+                    "alphabet": "A",
+                    "semester": 1,
+                    "year": 2023,
+                    "class_id": 77
+                },
+                {
+                    "level": 11,
+                    "prody": "Rekayasa Perangkat Lunak",
+                    "short_prody": "RPL",
+                    "alphabet": "A",
+                    "semester": 1,
+                    "year": 2022,
+                    "class_id": 76
+                },
+                {
+                    "level": 11,
+                    "prody": "Rekayasa Perangkat Lunak",
+                    "short_prody": "RPL",
+                    "alphabet": "A",
+                    "semester": 1,
+                    "year": 2022,
+                    "class_id": 75
+                }
+            ],
+            "guru": {
+                "name": "Dwiki",
+                "nip": "1234",
+                "work_since": "23 September 2023",
+                "work_end": null,
+                "homeroom_teacher": {
+                    "class": "XII RPL A"
+                },
+                "lesson_teacher": {
+                    "lesson": "Matematika"
+                }
+            },
+            "student": {
+                "nisn": "55555"
+            }
+        }
+    }
+}
