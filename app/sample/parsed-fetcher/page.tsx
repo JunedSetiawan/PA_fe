@@ -31,7 +31,7 @@ export default function PandaPage() {
                 }}
                 rightElement={(
                     <div className="btn" onClick={() => { refetchListBook(({ appended }) => ({ appended: !appended })) }}>
-                        klik
+                        Refresh
                     </div>
                 )}
             />

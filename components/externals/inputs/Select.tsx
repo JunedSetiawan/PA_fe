@@ -1,5 +1,6 @@
 'use client'
 import { api, changeAttributeInput } from '@/utils/frontend';
+import { CaretDown } from 'phosphor-react'
 import { DetailedHTMLProps, Dispatch, ReactNode, SelectHTMLAttributes, SetStateAction, useEffect, useRef, useState } from 'react'
 
 export interface IInputSelectProps extends Omit<DetailedHTMLProps<
@@ -182,7 +183,9 @@ export default function Select({
                     <div className="input-form flex items-center" onClick={() => setIsFocus(true)}>
                         {OptionSelected?.label ?? OptionSelected ?? (<div className='text-gray-500'>{placeholder}</div>)}
                     </div>
-                    <i className='bi bi-chevron-down absolute right-[1rem] top-[calc(50%-9px)]' />
+                    <CaretDown
+                        className='absolute right-[1rem] top-[calc(50%-7px)]'
+                    />
                 </div>
                 {Boolean(getter?.invalids?.[name]?.length) && (
                     <div className='invalid-message'>{getter?.invalids?.[name][0]}</div>

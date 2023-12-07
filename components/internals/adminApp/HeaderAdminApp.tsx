@@ -2,6 +2,7 @@
 
 import Profile from '@/components/siomaApps/Profile'
 import SubAppNavigator from '@/components/siomaApps/SubAppNavigator'
+import { List } from 'phosphor-react'
 import React, { useEffect } from 'react'
 
 function HeaderAdminApp() {
@@ -17,7 +18,7 @@ function HeaderAdminApp() {
                 <div
                     className="header-icon-square"
                     onClick={() => { onClickSlider() }}>
-                    <i className="bi bi-justify-left text-lg" />
+                    <List className="text-lg" />
                 </div>
             </div>
             <div className="ml-auto flex items-center">

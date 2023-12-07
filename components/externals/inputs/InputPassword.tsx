@@ -2,6 +2,7 @@
 
 import React, { DetailedHTMLProps, Dispatch, FormEvent, InputHTMLAttributes, ReactNode, SetStateAction, useEffect, useState } from 'react'
 import validator from './validatorUtils'
+import { Eye, EyeSlash } from 'phosphor-react'
 
 export interface typeInputPasswordProps extends Omit<DetailedHTMLProps<
     InputHTMLAttributes<HTMLInputElement>,
@@ -53,7 +54,7 @@ function InputPassword({
             }
         }
     }, [getter])
-    
+
 
     /**
      * Function Handler
@@ -87,10 +88,13 @@ function InputPassword({
                     {...props}
                     type={IsVisible ? 'text' : 'password'}
                 />
-                <i
-                    className={`bi ${IsVisible ? 'bi bi-eye-slash-fill' : 'bi bi-eye-fill'} cursor-pointer absolute right-[1rem] top-[calc(50%-9px)]`}
-                    onClick={() => (setIsVisible((prev) => (!prev)))}
-                />
+                <div className='cursor-pointer absolute right-[1rem] top-[calc(50%-7px)]'>
+                    {IsVisible ? (
+                        <EyeSlash weight='regular' onClick={() => (setIsVisible((prev) => (!prev)))} />
+                    ) : (
+                        <Eye weight='regular' onClick={() => (setIsVisible((prev) => (!prev)))} />
+                    )}
+                </div>
             </div>
             {Boolean(getter?.invalids?.[name]?.length) && (
                 <div className='invalid-message'>{getter?.invalids?.[name][0]}</div>

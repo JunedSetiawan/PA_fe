@@ -6,6 +6,7 @@ import InputText from '@/components/externals/inputs/InputText'
 import { isInvalidForm } from '@/utils/frontend'
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
+import { ArrowRight } from 'phosphor-react'
 import React, { FormEvent, useState } from 'react'
 
 function LoginPage() {
@@ -77,11 +78,9 @@ function LoginPage() {
                                 }}
                             />
                             <Button
-                                className='btn-outline aspect-square mt-[1.5rem] bg-primary text-contras-primary disabled:border-gray-200 disabled:bg-white disabled:text-gray-300'
+                                className='btn-outline aspect-square px-2 text-sm mt-[1.5rem] bg-primary text-contras-primary disabled:border-gray-200 disabled:bg-white disabled:text-gray-300'
                                 disabled={isInvalidForm(FormLogin)}
-                                text={<>
-                                    <i className='bi bi-arrow-right mt-[2px]' />
-                                </>}
+                                text={<ArrowRight weight={'light'} />}
                             />
                         </div>
                     </form>

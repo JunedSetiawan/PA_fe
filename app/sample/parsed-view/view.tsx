@@ -22,7 +22,7 @@ export default function ViewSampleFetch({ ListBook, refetchListBook }: { ListBoo
             }}
             rightElement={(
                 <div className="btn" onClick={() => { refetchListBook(({ appended }: any) => ({ appended: !appended })) }}>
-                    klik
+                    Refresh
                 </div>
             )}
         />

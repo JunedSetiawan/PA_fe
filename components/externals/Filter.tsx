@@ -4,6 +4,7 @@ import { Dispatch, ReactNode, SetStateAction, useState } from 'react'
 import Button from './Button'
 import Mark from './Mark'
 import Modal from './popups/Modal'
+import { Sliders } from 'phosphor-react'
 
 
 
@@ -23,7 +24,9 @@ function Filter({ setter, getter, children }: typeFilterProps) {
                 {false ? (
                     <Mark text={99} className='mb-[2px]' />
                 ) : (
-                    <i className='bi bi-sliders2' />
+                    <Sliders
+                        className='rotate-90'
+                    />
                 )}
                 <span>Filter</span>
             </>}

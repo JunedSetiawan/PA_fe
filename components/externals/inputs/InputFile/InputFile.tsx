@@ -1,3 +1,5 @@
+
+import { FileArrowUp, DownloadSimple, PlusCircle } from 'phosphor-react'
 import React, { ChangeEvent, DetailedHTMLProps, Dispatch, InputHTMLAttributes, ReactNode, SetStateAction, useEffect, useRef, useState } from 'react'
 import CropImage from './CropImage';
 import { changeAttributeInput } from '@/utils/frontend';
@@ -135,7 +137,7 @@ export default function InputFile({
                             )}
                             className={`input-form flex items-center gap-1 ${className}`}
                         >
-                            <i className="bi bi-file-earmark-arrow-up text-xl" />
+                            <FileArrowUp className="text-xl" />
                             <div>Pilih file</div>
                         </div>
                     ) : (
@@ -144,7 +146,7 @@ export default function InputFile({
                                 <a className="rounded-full hover:bg-blue-100 hover:text-blue-500 h-7 aspect-square flex items-center justify-center"
                                     target="_blank" rel="noreferrer"
                                     href={(getter?.values?.[name] instanceof File) ? URL.createObjectURL(getter?.values?.[name]) : getter?.values?.[name]}>
-                                    <i className='bi bi-download' />
+                                    <DownloadSimple />
                                 </a>
                                 <div className="truncate block max-w-[12rem]">
                                     {getter?.values?.[name]?.name ?? getter?.values?.[name]}
@@ -160,7 +162,7 @@ export default function InputFile({
                                     }
                                 }}>
                                 <div className='rotate-45 rounded-full hover:text-red-500'>
-                                    <i className='bi bi-plus-circle' />
+                                    <PlusCircle />
                                 </div>
                             </div>
                         </div>

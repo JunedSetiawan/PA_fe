@@ -1,3 +1,5 @@
+
+import { X } from 'phosphor-react'
 import { Dispatch, SetStateAction } from "react"
 
 
@@ -17,7 +19,7 @@ export default function HeaderModal({ title, setShow }: MyHeaderModalProps) {
             </div>
             <div className="cursor-pointer"
                 onClick={() => { setShow(null) }}>
-                <i className="bi bi-x-lg text-lg hover:text-gray-500"/>
+                <X className="text-lg hover:text-gray-500" />
             </div>
         </div>
 

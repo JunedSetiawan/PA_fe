@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { CSSProperties, ReactNode, useEffect, useRef, useState } from 'react'
 import Confirm from './popups/Confirm';
 import { api } from '@/utils/frontend';
+import { Eye, PencilSimple, Trash, CaretLeft, CaretRight, MagnifyingGlass } from 'phosphor-react'
 
 interface typeDataTable {
     columns?: {
@@ -217,7 +218,7 @@ function Table({
                                                         href={`${pathname}/${primaryKey}`}
                                                         className="btn-square text-blue-400"
                                                     >
-                                                        <i className='bi bi-eye-fill' />
+                                                        <Eye weight='bold' />
                                                     </Link>
                                                 )}
                                                 {(actions?.includes("edit") || actions?.[0] == "*") && (
@@ -225,7 +226,7 @@ function Table({
                                                         href={`${pathname}/data/${primaryKey}`}
                                                         className="btn-square text-yellow-400"
                                                     >
-                                                        <i className='bi bi-pencil-square' />
+                                                        <PencilSimple weight='bold' />
                                                     </Link>
                                                 )}
                                                 {(actions?.includes("delete") || actions?.[0] == "*") && (
@@ -235,7 +236,7 @@ function Table({
                                                             setShowConfirmDelete(dataRow);
                                                         }}
                                                     >
-                                                        <i className='bi bi-trash' />
+                                                        <Trash />
                                                     </a>
                                                 )}
                                             </td>
@@ -274,13 +275,13 @@ function Paginate() {
         <div>
             <div className='flex items-center h-[2.25rem] border border-gray-400 rounded-lg cursor-pointer overflow-hidden'>
                 <div className='hover:text-primary flex items-center'>
-                    <i className='bi bi-chevron-left pt-[2px] pl-2' />
+                    <CaretLeft className='pt-[2px] pl-2' />
                 </div>
                 <div className='hover:text-primary flex items-center'>
                     <div className='px-1 pt-[2px]'>12/100</div>
                 </div>
                 <div className='hover:text-primary flex items-center'>
-                    <i className='bi bi-chevron-right pt-[2px] pr-2' />
+                    <CaretRight className='pt-[2px] pr-2' />
                 </div>
             </div>
         </div>
@@ -313,7 +314,7 @@ function Search({ onSubmit }: { onSubmit: (value: string) => void }) {
                 }}
                 className='my-auto pb-[3px] ml-[-1.5rem] w-[1.5rem] cursor-pointer'
             >
-                <i className='bi bi-search' />
+                <MagnifyingGlass />
             </div>
         </div>
     )

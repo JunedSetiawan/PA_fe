@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import CropImage from './CropImage'
 import { api } from '@/utils/frontend'
 import { useRouter } from 'next/navigation'
+import { Camera } from 'phosphor-react'
 
 interface typeInputAvatar {
     name?: string,
@@ -40,7 +41,7 @@ export default function InputAvatar({
                 style={{ backgroundImage: `URL('${src}')` }}
             >
                 <div className='bg-black/30 text-gray-200 mt-auto'>
-                    <i className='bi bi-camera'/>
+                    <Camera />
                 </div>
             </div>
             <CropImage

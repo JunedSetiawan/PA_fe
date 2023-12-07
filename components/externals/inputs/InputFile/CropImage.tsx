@@ -1,5 +1,6 @@
 import React, { ReactNode, useEffect, useRef, useState } from 'react'
 import Button from '../../Button'
+import { Plus, Warning, FolderNotch } from 'phosphor-react'
 import { Crop, ReactCrop } from 'react-image-crop'
 import 'react-image-crop/dist/ReactCrop.css'
 import { blobToFile } from '@/utils/general'
@@ -85,7 +86,7 @@ function ChildCropImage({
                                     {!Invalids?.length ? (
                                         <>
                                             <div>
-                                                <i className='bi bi-plus text-[4rem]'/>
+                                                <Plus className='text-[4rem]'/>
                                             </div>
                                             <div>
                                                 {placeholder ?? 'Pilih Foto Yang Akan Di Gunakan'}
@@ -94,7 +95,7 @@ function ChildCropImage({
                                     ) : (
                                         <>
                                             <div>
-                                                <i className='bi bi-exclamation-triangle text-[4rem]'/>
+                                                <Warning className='text-[4rem]'/>
                                             </div>
                                             <div className='mt-1 text-center'>
                                                 <div>File Yang Anda Pilih Harus Berupa gambar!</div>
@@ -126,7 +127,7 @@ function ChildCropImage({
                                 type='button'
                                 text={
                                     <>
-                                        <i className='bi bi-folder2 mr-1 mb-[1px]'/>
+                                        <FolderNotch className='mr-1 mb-[1px]'/>
                                         <span>Ganti File</span>
                                     </>
                                 }

@@ -1,6 +1,7 @@
+
+import { UserCircle, Power } from 'phosphor-react'
 import { useContext, useState } from 'react'
 import Dropdown from '../externals/popups/Dropdown'
-import Link from 'next/link'
 import Confirm from '../externals/popups/Confirm'
 import { AppContext } from '../internals/wrappers/AppContext'
 
@@ -25,11 +26,11 @@ export default function Profile() {
     return (
         <div className='relative'>
             <div className="header-icon-square" onClick={() => setShowProfile(true)}>
-                <i className="bi bi-person-circle text-2xl" />
+                <UserCircle className="text-[24px]" />
             </div>
             <Dropdown show={ShowProfile} setShow={setShowProfile} className='w-[20rem] right-0 text-center overflow-hidden'>
                 <div className="py-4">
-                    <i className='bi bi-person-circle text-[3rem]' />
+                    <UserCircle className='text-[4.5rem] mx-auto' />
                     <div className="text-lg max-w-[13rem] mx-auto truncate mt-1">{UserAuthed?.name}</div>
                     <div className="text-xs text-gray-600 mt-1 capitalize">{UserAuthed?.access?.ER?.role}</div>
                 </div>
@@ -42,7 +43,7 @@ export default function Profile() {
                     className="mt-2 py-3 flex justify-center gap-1 border-t cursor-pointer text-red-500 hover:bg-red-500 hover:text-white"
                     onClick={() => { setAlertLogout(true) }}
                 >
-                    <i className='bi bi-power mt-[1px]'></i>
+                    <Power className='mt-[1px]' />
                     <span>Logout</span>
                 </div>
             </Dropdown>

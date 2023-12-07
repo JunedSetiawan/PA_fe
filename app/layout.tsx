@@ -15,9 +15,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={roboto.className}>
-      <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css" />
-      </head>
       <body>
         {children}
       </body>

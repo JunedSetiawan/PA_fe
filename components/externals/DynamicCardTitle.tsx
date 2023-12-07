@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { CaretLeft, CaretRight } from 'phosphor-react'
 interface typeDynamicCardTitleProps {
     label: ReactNode,
     isDisablePrev?: boolean,
@@ -13,7 +14,7 @@ export default function DynamicCardTitle({ label, isDisablePrev, onPrev, isDisab
             <div className='flex justify-start'>
                 {!isDisablePrev && (
                     <div className="btn-square" onClick={onPrev}>
-                        <i className='bi bi-chevron-left' />
+                        <CaretLeft />
                     </div>
                 )}
             </div>
@@ -21,7 +22,7 @@ export default function DynamicCardTitle({ label, isDisablePrev, onPrev, isDisab
             <div className='flex justify-end'>
                 {!isDisableNext && (
                     <div className="btn-square" onClick={onNext}>
-                        <i className='bi bi-chevron-right' />
+                        <CaretRight />
                     </div>
                 )}
             </div>

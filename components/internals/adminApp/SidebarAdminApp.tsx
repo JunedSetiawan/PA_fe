@@ -3,6 +3,7 @@
 import { checkAccessFeature } from '@/utils/internal/sioma'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { House, Cube, CaretLeft } from 'phosphor-react'
 import React, { useEffect } from 'react'
 
 
@@ -53,8 +54,8 @@ function SidebarAdminApp() {
                             <div className={`sidebar-item ${[''].includes(paths?.[1] as any) ? 'active' : ''}`}>
                                 <Link href={`/`} className={`sidebar-link`}>
                                     <div className="flex items-center gap-3 capitalize">
-                                        <i className="mt-[2px] bi bi-house" />
-                                        <div className='text-lg leading-[24px]'>home</div>
+                                        <House className="text-xl" />
+                                        <div>home</div>
                                     </div>
                                 </Link>
                             </div>
@@ -63,27 +64,27 @@ function SidebarAdminApp() {
                     <div className={`sidebar-item sidebar-item-has-child ${['sample'].includes(paths[1]) ? 'active sidebar-item-has-child-open' : ''}`}>
                         <div className={`sidebar-link`}>
                             <div className="flex items-center gap-3">
-                                <i className="bi bi-box"></i>
-                                <div className='text-lg leading-[24px]'>Sample</div>
+                                <Cube className="text-xl" />
+                                <div>Sample</div>
                             </div>
                             <div className="ml-auto">
                                 <div className="sidebar-child-arrow">
-                                    <i className="bi bi-chevron-left text-sm"></i>
+                                    <CaretLeft className="text-sm" />
                                 </div>
                             </div>
                         </div >
                         <div className="sidebar-child">
                             <Link href={`/sample/monofile`} className={`sidebar-link ${['monofile'].includes(paths[2]) ? 'active' : ''}`}>
-                                <i className="text-xs bi bi-dash"></i>
-                                <div className='text-lg leading-[24px]'>Monofile</div>
+                                <span className="text-xl">-</span>
+                                <div>Monofile</div>
                             </Link>
                             <Link href={`/sample/parsed-fetcher`} className={`sidebar-link ${['parsed-fetcher'].includes(paths[2]) ? 'active' : ''}`}>
-                                <i className="text-xs bi bi-dash"></i>
-                                <div className='text-lg leading-[24px]'>Parsed Fetcher</div>
+                                <span className="text-xl">-</span>
+                                <div>Parsed Fetcher</div>
                             </Link>
                             <Link href={`/sample/parsed-view`} className={`sidebar-link ${['parsed-view'].includes(paths[2]) ? 'active' : ''}`}>
-                                <i className="text-xs bi bi-dash"></i>
-                                <div className='text-lg leading-[24px]'>Parsed View</div>
+                                <span className="text-xl">-</span>
+                                <div>Parsed View</div>
                             </Link>
                         </div>
                     </div>

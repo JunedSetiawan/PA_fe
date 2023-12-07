@@ -1,3 +1,5 @@
+
+import { SquaresFour } from 'phosphor-react'
 import React, { useState } from 'react'
 import Dropdown from '../externals/popups/Dropdown'
 
@@ -6,7 +8,7 @@ export default function SubAppNavigator() {
     return (
         <div>
             <div className="header-icon-square" onClick={() => setShowDropDownSubApp(true)}>
-                <i className="bi bi-grid-fill text-lg" />
+                <SquaresFour className="text-2xl" />
             </div>
             <Dropdown show={ShowDropDownSubApp} setShow={setShowDropDownSubApp} className='w-[20rem] right-[2rem] sm:right-[3rem] text-center overflow-hidden'>
                 <div className="grid grid-cols-3 gap-1 px-2 pt-2 pb-4">

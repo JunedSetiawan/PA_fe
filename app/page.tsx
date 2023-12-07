@@ -12,7 +12,7 @@ export default function Blank() {
                         <div className="card-title">Blank Title</div>
                     </div>
                     <div className="card-body">
-                        Blank Content
+                        <div>Blank Content</div>
                     </div>
                     <div className="card-footer"></div>
                 </div>

@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation';
+import { CaretRight } from 'phosphor-react'
 import React from 'react'
 
 
@@ -18,9 +19,9 @@ export default function Breadcrumb({ navigations }: { navigations?: typeBreadcum
                         return (
                             <div key={indexControl}>
                                 {((indexControl + 1) < controls.length) ? (
-                                    <div className='text-slate-500'>
+                                    <div className='text-slate-500 flex'>
                                         <Link href={String(control?.directPath)}>{control?.label}</Link>
-                                        <i className="bi bi-chevron-compact-right mx-1"/>
+                                        <CaretRight className="mx-1"/>
                                     </div>
                                 ) : (
                                     <div className='cursor-default text-slate-600'>{control?.label}</div>
