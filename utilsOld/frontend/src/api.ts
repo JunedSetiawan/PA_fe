@@ -3,12 +3,23 @@ import { getCookie, removeCookie } from 'typescript-cookie';
 
 
 
-export const onLogout = ({ redirectTo } = { redirectTo: '/login' }) => {
-  const cookieConfigs: any = {}
-  const domain = process?.env?.NEXT_PUBLIC_PARENT_DOMAIN
-  if (domain) cookieConfigs.domain = domain
-  removeCookie("userToken", cookieConfigs);
-  removeCookie("userAuthed", cookieConfigs);
+// for 422 default response BFF adonisJS
+export const onInvalidRequestAdonis = (errors: any) => {
+  const invalids: Record<string, any> = {}
+
+  for (const error of errors) {
+    const { field, message } = error
+    invalids[field] = [...(invalids?.[field] ?? []), message]
+  }
+
+  return invalids
+}
+
+
+
+export const onLogout = ({ redirectTo } = { redirectTo: '/' }) => {
+  removeCookie("userToken");
+  removeCookie("userAuthed");
   window.location.href = (redirectTo);
 };
 

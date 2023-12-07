@@ -75,16 +75,17 @@
    * SEGMENT CONTROL
    */
 
-.radio-switch {
-  @apply h-[3rem] p-[.2rem] flex items-center bg-gray-100 rounded-lg;
+.segment-control {
+  @apply grid grid-cols-2 p-[.2rem] h-12 rounded-lg;
+  @apply text-center text-sm bg-gray-100;
 }
 
-.radio-switch>* {
-  @apply w-full h-full px-4 truncate flex justify-center items-center cursor-pointer rounded-lg;
+.segment-control>* {
+  @apply h-full px-4 flex cursor-pointer rounded-lg;
 }
 
-.radio-switch>*:has(input[type="radio"]:checked) {
-  @apply bg-white;
+.segment-control>*>* {
+  @apply m-auto;
 }
 
 /**

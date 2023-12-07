@@ -1,6 +1,6 @@
 'use client'
 
-import { accessFeature } from '@/utils/internal/sioma'
+import { checkAccessFeature } from '@/utils/internal/sioma'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect } from 'react'
@@ -41,26 +41,30 @@ function SidebarAdminApp() {
         <>
             <aside className="sidebar">
                 <div className="px-8 py-6 flex items-center gap-3">
-                    <div className="h-[4rem] bg-profile" style={{ backgroundImage: `URL(/logo/logo-smkn-jenangan.png)` }} />
-                    <div>
+                    <div className="h-[3.75rem] bg-profile" style={{ backgroundImage: `URL(/public/logo/logo-smkn-jenangan.png)` }} />
+                    <div className='text-white/80'>
                         <div className="text-xl mt-[.15rem]">E-RAPOR</div>
-                        <div className="text-sm mt-1 font-light">SMKN 1 JENANGAN</div>
+                        <div className="text-xs mt-1 font-light">SMKN 1 JENANGAN</div>
                     </div>
                 </div>
                 <div>
-                    <div className={`sidebar-item ${[''].includes(paths?.[1] as any) ? 'active' : ''}`}>
-                        <Link href={`/`} className={`sidebar-link`}>
-                            <div className="flex items-center gap-4 capitalize">
-                                <i className="mt-[2px] bi bi-house" />
-                                <div>home</div>
+                    {
+                        checkAccessFeature([]) && (
+                            <div className={`sidebar-item ${[''].includes(paths?.[1] as any) ? 'active' : ''}`}>
+                                <Link href={`/`} className={`sidebar-link`}>
+                                    <div className="flex items-center gap-3 capitalize">
+                                        <i className="mt-[2px] bi bi-house" />
+                                        <div className='text-lg leading-[24px]'>home</div>
+                                    </div>
+                                </Link>
                             </div>
-                        </Link>
-                    </div>
+                        )
+                    }
                     <div className={`sidebar-item sidebar-item-has-child ${['sample'].includes(paths[1]) ? 'active sidebar-item-has-child-open' : ''}`}>
                         <div className={`sidebar-link`}>
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-3">
                                 <i className="bi bi-box"></i>
-                                <div className="capitalize">Sample</div>
+                                <div className='text-lg leading-[24px]'>Sample</div>
                             </div>
                             <div className="ml-auto">
                                 <div className="sidebar-child-arrow">
@@ -71,15 +75,15 @@ function SidebarAdminApp() {
                         <div className="sidebar-child">
                             <Link href={`/sample/monofile`} className={`sidebar-link ${['monofile'].includes(paths[2]) ? 'active' : ''}`}>
                                 <i className="text-xs bi bi-dash"></i>
-                                <div className="capitalize">monofile</div>
+                                <div className='text-lg leading-[24px]'>Monofile</div>
                             </Link>
                             <Link href={`/sample/parsed-fetcher`} className={`sidebar-link ${['parsed-fetcher'].includes(paths[2]) ? 'active' : ''}`}>
                                 <i className="text-xs bi bi-dash"></i>
-                                <div className="capitalize">parsed fetcher</div>
+                                <div className='text-lg leading-[24px]'>Parsed Fetcher</div>
                             </Link>
                             <Link href={`/sample/parsed-view`} className={`sidebar-link ${['parsed-view'].includes(paths[2]) ? 'active' : ''}`}>
                                 <i className="text-xs bi bi-dash"></i>
-                                <div className="capitalize">parsed view</div>
+                                <div className='text-lg leading-[24px]'>Parsed View</div>
                             </Link>
                         </div>
                     </div>

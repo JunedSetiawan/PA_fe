@@ -15,10 +15,10 @@ const config: Config = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
-        primary: '#0ea5e9',
-        'contras-primary': '#fff'
-        // primary: '#346667',
-        // 'contras-primary': '#fd6300'
+        'primary': '#2c595a',
+        'contras-primary': '#fff',
+        'secondary': '#fd6300',
+        'contras-secondary': '#fff',
       }
     },
     fontSize: {

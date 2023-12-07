@@ -77,7 +77,7 @@
    */
   .section-table {
     @apply px-[calc(var(--px-mobile)+0.5rem)];
-    @apply md:px-[calc(var(--px-desktop)+0.25rem)];
+    /* @apply md:px-[calc(var(--px-desktop)+0.5rem)]; */
   }
   
   .section-table table {
@@ -97,7 +97,7 @@
     content: "";
     z-index: -1;
     @apply absolute bottom-0 top-[12px] inset-x-[calc((var(--px-mobile)+0.5rem)*-1)];
-    @apply md:inset-x-[calc((var(--px-desktop)+0.25rem)*-1)];
+    /* @apply md:inset-x-[calc((var(--px-desktop)+0.5rem)*-1)]; */
     @apply bg-white shadow;
   }
   
