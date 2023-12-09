@@ -40,10 +40,10 @@ export default function Profile() {
                     </div>
                 </Link> */}
                 <div
-                    className="mt-2 py-3 flex justify-center gap-1 border-t cursor-pointer text-red-500 hover:bg-red-500 hover:text-white"
+                    className="mt-2 py-3 flex justify-center items-center gap-1 border-t cursor-pointer text-red-500 hover:bg-red-500 hover:text-white"
                     onClick={() => { setAlertLogout(true) }}
                 >
-                    <Power className='mt-[1px]' />
+                    <Power weight='bold' className='mt-[.7px]' />
                     <span>Logout</span>
                 </div>
             </Dropdown>

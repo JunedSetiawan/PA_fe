@@ -21,11 +21,9 @@ export default function PandaPage() {
      * JSX Rendered
      */
     return (
-        <>
-            <ViewSampleFetch
-                ListBook={ListBook}
-                refetchListBook={setParamsFetchBook}
-            />
-        </>
+        <ViewSampleFetch
+            ListBook={ListBook}
+            refetchListBook={setParamsFetchBook}
+        />
     )
 }

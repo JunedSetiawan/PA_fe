@@ -37,15 +37,20 @@ function BookHomePage() {
   return (
     <>
       <section className="bg-white">
-        <div className="px-4 lg:px-2 pt-4 pb-6">
-          <div className="text-lg capitalize">Title Page</div>
-          <div className="text-xs mt-1">Subtitle Page</div>
+        <div className="px-4 lg:px-2 pt-4 pb-2 flex justify-between">
+          <div>
+            <div className="text-xl mt-1 capitalize">Sample fetch monofile</div>
+          </div>
+          <div className='flex items-center gap-2'>
+            <Link href={'/sample/monofile/data'}>
+              <Button text='Tambah Data' />
+            </Link>
+          </div>
         </div>
       </section>
       <Table
         type='carded-section'
         actions={['edit', 'delete']}
-        noPaginate={true}
         data={{
           columns: [
             {
@@ -67,13 +72,6 @@ function BookHomePage() {
             }
           })
         }}
-        rightElement={<>
-          <Link href={'/sample/monofile/data'}>
-            <Button
-              text='Tambah Data'
-            />
-          </Link>
-        </>}
       />
     </>
   )

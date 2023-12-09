@@ -13,6 +13,12 @@ export default function PandaPage() {
      */
     return (
         <>
+            <section className="bg-white">
+                <div className="px-4 lg:px-2 pt-4 pb-6">
+                    <div className="text-lg capitalize">Title Page</div>
+                    <div className="text-xs mt-1">Subtitle Page</div>
+                </div>
+            </section>
             <Table
                 type='carded-section'
                 noPaginate={true}
