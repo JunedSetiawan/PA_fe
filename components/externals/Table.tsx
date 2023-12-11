@@ -93,7 +93,7 @@ function Table({
 
     function handleDelete() {
         if (onDelete) {
-            onDelete(ShowConfirmDelete, (DataTables.primaryKey ?? 'id'));
+            onDelete(ShowConfirmDelete, (DataTables?.primaryKey ?? 'id'));
         } else if (!data && path) {
             // Here code...
         }
@@ -172,7 +172,7 @@ function Table({
                         {!noHeader && (<thead>
                             <tr>
                                 {!noNumber && <th style={{ width: "1px" }}>#</th>}
-                                {DataTables.columns?.map((column, indexColumn) => {
+                                {DataTables?.columns?.map((column, indexColumn) => {
                                     return (
                                         <th key={indexColumn} className={column.className} style={column.style}>
                                             {column.title}
@@ -185,14 +185,14 @@ function Table({
                         )}
                         <tbody>
                             {Boolean(DataTables?.dataRows?.length) ? (
-                                DataTables.dataRows?.map((dataRow: Record<string, any>, indexDataRow) => {
-                                    const primaryKey = dataRow?.[DataTables.primaryKey ?? 'id'];
+                                DataTables?.dataRows?.map((dataRow: Record<string, any>, indexDataRow) => {
+                                    const primaryKey = dataRow?.[DataTables?.primaryKey ?? 'id'];
                                     return (
                                         <tr key={indexDataRow}>
                                             {!noNumber && <td>{indexDataRow + 1}</td>}
 
                                             {/* data rows */}
-                                            {DataTables.columns?.map((column, indexColumn) => {
+                                            {DataTables?.columns?.map((column, indexColumn) => {
                                                 const { keyData } = column;
                                                 return (
                                                     <td
@@ -212,7 +212,7 @@ function Table({
 
                                             {/* action rows */}
                                             <td className="inline-flex items-center gap-4">
-                                                {customAction ? (customAction(dataRow, (DataTables.primaryKey ?? 'id')) as ReactNode) : ''}
+                                                {customAction ? (customAction(dataRow, (DataTables?.primaryKey ?? 'id')) as ReactNode) : ''}
                                                 {(actions?.includes('show') || actions?.[0] == '*') && (
                                                     <Link
                                                         href={`${pathname}/${primaryKey}`}
@@ -246,7 +246,7 @@ function Table({
                             ) : (
                                 <tr className='empty-row'>
                                     <td
-                                        colSpan={(DataTables.columns?.length ?? 0) + (noNumber ? 1 : 2)}
+                                        colSpan={(DataTables?.columns?.length ?? 0) + (noNumber ? 1 : 2)}
                                         className="text-center text-gray-500"
                                         style={{ padding: "4rem 0" }}
                                     >

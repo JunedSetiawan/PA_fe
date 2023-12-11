@@ -7,7 +7,7 @@ import Link from 'next/link'
 import React, { useContext, useEffect } from 'react'
 
 function BookHomePage() {
-  const { Transporter, setTransporter, setBreadcumbNav } = useContext(AppContext)
+  const { setBreadcumbNav } = useContext(AppContext)
 
 
   /**
@@ -50,28 +50,7 @@ function BookHomePage() {
       </section>
       <Table
         type='carded-section'
-        actions={['edit', 'delete']}
-        data={{
-          columns: [
-            {
-              title: 'Judul',
-              keyData: 'title'
-            },
-            {
-              title: 'Prolog',
-              keyData: 'prolog'
-            }
-          ],
-          dataRows: Transporter?.books
-        }}
-        onDelete={(dataRow, primaryKey) => {
-          setTransporter((prev: any) => {
-            return {
-              ...prev,
-              books: prev.books.filter((book: any) => (book.id != dataRow[primaryKey]))
-            }
-          })
-        }}
+        path='/ready-books'
       />
     </>
   )
