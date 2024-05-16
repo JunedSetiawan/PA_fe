@@ -35,26 +35,26 @@ export default function Template({ children }: { children: React.ReactNode }) {
     /**
      * Load data
      */
-    useEffect(() => {
-        // load data profile
-        api({ path: '/profile' }).then(async (res) => {
-            if (res.status == 200) {
-                const { profile } = (await res.json()).data
-                setUserAuthed(profile)
-            } else {
-                setStatusCode(res.status)
-            }
-        })
+    // useEffect(() => {
+    //     // load data profile
+    //     api({ path: '/profile' }).then(async (res) => {
+    //         if (res.status == 200) {
+    //             const { profile } = (await res.json()).data
+    //             setUserAuthed(profile)
+    //         } else {
+    //             setStatusCode(res.status)
+    //         }
+    //     })
 
-        // load book data
-        api({ path: '/books', staleTime: 5 }).then(async (res) => {
-            const { books } = (await res.json()).data
-            setTransporter((prev: any) => ({
-                ...(prev ?? {}),
-                books
-            }))
-        })
-    }, [])
+    //     // load book data
+    //     api({ path: '/books', staleTime: 5 }).then(async (res) => {
+    //         const { books } = (await res.json()).data
+    //         setTransporter((prev: any) => ({
+    //             ...(prev ?? {}),
+    //             books
+    //         }))
+    //     })
+    // }, [])
 
 
     return (
