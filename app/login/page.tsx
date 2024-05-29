@@ -8,22 +8,51 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { ArrowRight } from "phosphor-react";
 import React, { FormEvent, useState } from "react";
+import { signIn } from "next-auth/react";
+import { ChangeEvent } from "react";
 
-function LoginPage() {
-  const searchParams = useSearchParams();
+type LoginInput = {
+  username: string;
+  password: string;
+};
 
-  /**
-   * State declaration
-   */
-  const [FormLogin, setFormLogin] = useState({});
+type PageProps = {
+  searchParams: { error?: string };
+};
+export default function LoginPage({ searchParams }: PageProps) {
+  // const searchParams = useSearchParams();
 
-  /**
-   * Function handler
-   */
-  function onSubmitLogin(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    window.location.href = "/";
-  }
+  // /**
+  //  * State declaration
+  //  */
+  // const [FormLogin, setFormLogin] = useState({});
+
+  // /**
+  //  * Function handler
+  //  */
+  // function onSubmitLogin(e: FormEvent<HTMLFormElement>) {
+  //   e.preventDefault();
+  //   window.location.href = "/";
+  // }
+  const [FormLogin, setFormLogin] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setFormLogin((values) => ({ ...values, [name]: value }));
+  };
+
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+    await signIn("credentials", {
+      username: FormLogin.username,
+      password: FormLogin.password,
+      callbackUrl: "/",
+    });
+  };
 
   /**
    * Render JSX
@@ -51,37 +80,42 @@ function LoginPage() {
               Jaga username dan password anda tetap aman
             </div>
           </div>
-          <form onSubmit={onSubmitLogin} className="mb-[3rem]">
-            <InputText
-              getter={FormLogin}
-              setter={setFormLogin}
+          <form onSubmit={handleSubmit} className="mb-[3rem]">
+            <input
+              id="username"
               name="username"
+              type="text"
+              autoComplete="off"
+              required
+              value={FormLogin.username || ""}
+              onChange={handleChange}
               className="float-label"
-              validations={{
-                required: true,
-              }}
             />
             <div className="flex gap-2">
-              <InputPassword
-                getter={FormLogin}
-                setter={setFormLogin}
+              <input
+                id="password"
                 name="password"
+                type="password"
+                autoComplete="off"
+                required
+                value={FormLogin.password || ""}
+                onChange={handleChange}
                 className="grow float-label"
-                validations={{
-                  required: true,
-                }}
               />
               <Button
                 className="btn-outline aspect-square px-2 text-sm mt-[1.5rem] bg-primary text-contras-primary disabled:border-gray-200 disabled:bg-white disabled:text-gray-300"
-                disabled={isInvalidForm(FormLogin)}
                 text={<ArrowRight weight={"light"} />}
               />
             </div>
+            {searchParams.error && (
+              <p className="text-red-600 text-center capitalize">
+                Login failed.
+              </p>
+            )}
           </form>
           <div>
             <p className="text-center text-gray-500 text-xs">
-              {/* &copy;2023 IT JENPO. All rights reserved. */}
-              &copy;2023 SMKN 1 Jenangan Ponorogo.
+              &copy;{new Date().getFullYear()} SMKN 1 Jenangan Ponorogo.
             </p>
           </div>
         </div>
@@ -89,5 +123,3 @@ function LoginPage() {
     </section>
   );
 }
-
-export default LoginPage;

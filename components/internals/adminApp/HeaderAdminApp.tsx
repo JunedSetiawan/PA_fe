@@ -1,62 +1,58 @@
-'use client'
+"use client";
 
-import Profile from '@/components/siomaApps/Profile'
-import SubAppNavigator from '@/components/siomaApps/SubAppNavigator'
-import { List } from 'phosphor-react'
-import React, { useEffect } from 'react'
+import Profile from "@/components/siomaApps/Profile";
+import SubAppNavigator from "@/components/siomaApps/SubAppNavigator";
+import { List } from "phosphor-react";
+import React, { useEffect } from "react";
+import { Session } from "next-auth";
 
-function HeaderAdminApp() {
-    useEffect(() => {
-        if (document.body.clientWidth < 1024) {
-            onClickSlider(true)
-        }
-    }, [])
+type HeaderAdminAppProps = {
+  session: Session;
+};
 
-    return (
-        <header className="header">
-            <div className="flex items-center">
-                <div
-                    className="header-icon-square"
-                    onClick={() => { onClickSlider() }}>
-                    <List className="text-lg" />
-                </div>
-            </div>
-            <div className="ml-auto flex items-center">
-                <SubAppNavigator />
-                <Profile />
-            </div>
-        </header>
-    )
+function HeaderAdminApp({ session }: HeaderAdminAppProps) {
+  useEffect(() => {
+    if (document.body.clientWidth < 1024) {
+      onClickSlider(true);
+    }
+  }, []);
+
+  return (
+    <header className="header">
+      <div className="flex items-center">
+        <div
+          className="header-icon-square"
+          onClick={() => {
+            onClickSlider();
+          }}
+        >
+          <List className="text-lg" />
+        </div>
+      </div>
+      <div className="ml-auto flex items-center">
+        <SubAppNavigator />
+        <Profile />
+      </div>
+    </header>
+  );
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /**
  * Handle toggle sidebar on click icon slider.
  */
 function onClickSlider(isCollapse = false) {
-    const sidebarEl = document.body.classList;
-    if (isCollapse) {
-        if (!sidebarEl.contains('sidebar-collapse')) {
-            sidebarEl.add('sidebar-collapse');
-        }
-    } else {
-        if (!sidebarEl.contains('sidebar-collapse')) {
-            sidebarEl.add('sidebar-collapse');
-        } else {
-            sidebarEl.remove('sidebar-collapse');
-        }
+  const sidebarEl = document.body.classList;
+  if (isCollapse) {
+    if (!sidebarEl.contains("sidebar-collapse")) {
+      sidebarEl.add("sidebar-collapse");
     }
-
+  } else {
+    if (!sidebarEl.contains("sidebar-collapse")) {
+      sidebarEl.add("sidebar-collapse");
+    } else {
+      sidebarEl.remove("sidebar-collapse");
+    }
+  }
 }
 
-export default HeaderAdminApp
+export default HeaderAdminApp;
